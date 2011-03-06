@@ -1,8 +1,24 @@
+#include "HROOT.h"
 #include "addon.h"
 
+#include "TF1.h"
+#include "TCanvas.h"
+#include "TH1F.h"
 
-TF1_p TF1_New( const char* name, const char* formula, double xmin, double xmax )
-{
-  TF1* f = new TF1( name, formula, xmin, xmax ) ;
-  return  to_nonconst<TF1_t, TF1>(f); 
+
+using namespace std;
+
+
+template<class ToType, class FromType>
+const ToType* to_const(const FromType* x) {
+  return reinterpret_cast<const ToType*>(x);
 }
+
+template<class ToType, class FromType>
+ToType* to_nonconst(FromType* x) {
+  return reinterpret_cast<ToType*>(x);
+}
+
+// New Functions : I will automate them later .
+
+
