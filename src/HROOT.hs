@@ -1,5 +1,5 @@
 module HROOT (
-  module HROOT.Class
+  module HROOT.Class,
   module HROOT.Function 
 ) where
 

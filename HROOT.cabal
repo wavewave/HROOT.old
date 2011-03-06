@@ -15,10 +15,14 @@ ghc-prof-options: -caf-all -auto-all
 
 Exposed-Modules: 
 		 HROOT
-		 HROOT.Class
-		 HROOT.Function 
+		 HROOT.Type
+		 HROOT.Function
+                 HROOT.Class
+                 HROOT.AddOn
+                 HROOT.AddOnFunction
 
 Extra-source-files: csrc/HROOT.h
+                    csrc/addon.h
 
 extra-lib-dirs: /home/wavewave/nfs/root/lib
 extra-libraries: stdc++,   
@@ -35,5 +39,7 @@ Include-dirs: 	csrc
 		/home/wavewave/nfs/root/include
 
 Install-includes: HROOT.h
+                  addon.h
 C-sources: 	csrc/HROOT.cpp
+                csrc/addon.cpp
    
