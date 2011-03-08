@@ -1,0 +1,3 @@
+cabal install --enable-documentation 
+cabal haddock --hyperlink-source --hoogle
+cabal install

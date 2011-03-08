@@ -1,5 +1,5 @@
 Name:		HROOT
-Version:	0.4.1.0
+Version:	0.4.3.0
 Synopsis:	Wrapper for ROOT
 Description: 	Haskell FFI Wrapper for frequently used ROOT routines.  
 License: 	GPL-3
