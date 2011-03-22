@@ -6,7 +6,7 @@ import Text.Parsec.Combinator
 import System.FilePath ((</>))
 import System.Posix.Files 
 
---import System.Directory
+import System.Directory
 --import System.Process
 
 cabalName :: Parser String 
@@ -33,19 +33,30 @@ main = do
   let Right (name,version) = parse nameVersion "" str
       filename = name ++ "-" ++ version
       linkbase = "/home/wavewave/nfs/doc/prog" 
-      docbase  = "/home/wavewave/nfs/haddock"
+      docbase  = "/home/wavewave/nfs/usr/share/doc"
       linkpath = linkbase </> name 
       origpath = docbase </> filename
   
   putStrLn $ "ln -s " ++ origpath ++ " " ++ linkpath
   
+  test <- getDirectoryContents linkbase  
   
+  if elem name test 
+    then do 
+      putStrLn "removing link"
+      removeLink linkpath  
+    else do 
+      putStrLn "doesn't exist" 
+      return () 
+{-  putStrLn $ show test
   b <- fileExist linkpath 
   if b 
      then do 
        putStrLn $ "removing link" 
        removeLink linkpath 
-     else return ()
+     else do
+       putStrLn $ "doesn't exist"
+       return () -}
  {-  readProcess "ln" ["-s", origpath, linkpath] "" -} 
   createSymbolicLink origpath linkpath
     
