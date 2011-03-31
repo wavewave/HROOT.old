@@ -9,6 +9,11 @@ import System.Posix.Files
 import System.Directory
 --import System.Process
 
+isCabal :: String -> Bool 
+isCabal str 
+  | length str > 6 = let ext = reverse . take 6 . reverse $ str in ext == ".cabal" 
+  | otherwise = False
+                
 cabalName :: Parser String 
 cabalName = do 
   manyTill anyChar (try (string "Name:"))
@@ -29,7 +34,9 @@ nameVersion = do
   
 main = do 
   putStrLn "version check"
-  str <- readFile "HROOT.cabal" 
+  currdir <- getDirectoryContents "."
+  let cabalfile = head $ filter isCabal currdir
+  str <- readFile cabalfile 
   let Right (name,version) = parse nameVersion "" str
       filename = name ++ "-" ++ version
       linkbase = "/home/wavewave/nfs/doc/prog" 
