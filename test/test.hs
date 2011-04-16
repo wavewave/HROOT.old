@@ -5,6 +5,7 @@ import HROOT.Class
 import HROOT.AddOn
 
 main = do 
+  tapp <- newTApplication "test" [0] ["test"] 
   tcanvas <- newTCanvas "test" "test" 640 480
   h1 <- newTH1F "test" "test" 100 1 10
   h2 <- newTH1F "test" "test" 100 1 10 
@@ -16,6 +17,7 @@ main = do
   
   draw h1 "" 
   
-  saveAs tcanvas "test.pdf" "" 
-  putStrLn "test"
+  run tapp 
+--  saveAs tcanvas "test.pdf" "" 
+--  putStrLn "test"
           

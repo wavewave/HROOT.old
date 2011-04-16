@@ -24,7 +24,7 @@ Exposed-Modules:
 Extra-source-files: csrc/HROOT.h
                     csrc/addon.h
 
-extra-lib-dirs: /home/wavewave/nfs/root/lib
+extra-lib-dirs: /usr/local/root/lib/root
 extra-libraries: stdc++,   
 		 New, Core, Cint, 
 		 Graf, MathCore, RIO, Hist, Matrix,
@@ -36,7 +36,7 @@ extra-libraries: stdc++,
 Extensions:	 ForeignFunctionInterface
 
 Include-dirs: 	csrc
-		/home/wavewave/nfs/root/include
+		/usr/local/root/include/root
 
 Install-includes: HROOT.h
                   addon.h
