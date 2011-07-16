@@ -32,7 +32,7 @@ config bInfo = do
   let Just lib = library . localPkgDescr $ bInfo
       buildinfo = libBuildInfo lib
 
-  let hbi = emptyBuildInfo { extraLibs = libs liboptset
+  let hbi = emptyBuildInfo { extraLibs = extraLibs buildinfo ++ libs liboptset
                            , extraLibDirs = libdirs liboptset 
                            , includeDirs = incdir : includeDirs buildinfo
                            }

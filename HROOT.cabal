@@ -21,6 +21,8 @@ Exposed-Modules:
                  HROOT.AddOn
                  HROOT.AddOnFunction
 
+extra-libraries: stdc++
+
 Extra-source-files: csrc/HROOT.h
                     csrc/addon.h
 
