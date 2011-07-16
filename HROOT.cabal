@@ -1,5 +1,5 @@
 Name:		HROOT
-Version:	0.4.4.0
+Version:	0.5.0.0
 Synopsis:	Wrapper for ROOT
 Description: 	Haskell FFI Wrapper for frequently used ROOT routines.  
 License: 	GPL-3
@@ -7,7 +7,7 @@ License-file:	LICENSE
 Author:		Ian-Woo Kim
 Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
 Build-Depends:	base>4
-Build-Type: 	Simple
+Build-Type: 	Custom
 
 hs-source-dirs: src
 ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
@@ -24,19 +24,10 @@ Exposed-Modules:
 Extra-source-files: csrc/HROOT.h
                     csrc/addon.h
 
-extra-lib-dirs: /usr/local/root/lib/root
-extra-libraries: stdc++,   
-		 New, Core, Cint, 
-		 Graf, MathCore, RIO, Hist, Matrix,
-		 Graf3d, Gpad, Html, Thread, 
-		 Minuit, Postscript, Proof, Net, Tree, 
-		 TreePlayer, Gui, GX11, X3d
-
 
 Extensions:	 ForeignFunctionInterface
 
 Include-dirs: 	csrc
-		/usr/local/root/include/root
 
 Install-includes: HROOT.h
                   addon.h
@@ -44,4 +35,3 @@ C-sources: 	csrc/HROOT.cpp
                 csrc/addon.cpp
    
 
--- ghci -L/usr/lib/gcc/x86_64-linux-gnu/4.4.5/ -lstdc++ -L/home/wavewave/nfs/root/lib/  -lCint -lCore -lNew -lGX11 -lRIO -lPostscript -lMatrix -lMathCore -lHist -lGraf -lGui -lGpad -lThread -lMinuit -lNet -lTree -lProof -lTreePlayer -lGraf3d -lX3d -lHtml
