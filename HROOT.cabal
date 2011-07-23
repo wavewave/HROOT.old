@@ -37,3 +37,5 @@ C-sources: 	csrc/HROOT.cpp
                 csrc/addon.cpp
    
 
+
+-- ghci -L/usr/lib/gcc/x86_64-linux-gnu/4.4.5/ -lstdc++ -L/home/wavewave/nfs/root/lib/  -lCint -lCore -lNew -lGX11 -lRIO -lPostscript -lMatrix -lMathCore -lHist -lGraf -lGui -lGpad -lThread -lMinuit -lNet -lTree -lProof -lTreePlayer -lGraf3d -lX3d -lHtml
