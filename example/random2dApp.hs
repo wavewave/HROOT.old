@@ -11,6 +11,8 @@ import HROOT.AddOn
 
 main :: IO () 
 main = do 
+
+  tapp <- newTApplication "test" [0] ["test"]
   tcanvas <- newTCanvas "Test" "Test" 640 480
   h2 <- newTH2F "test" "test" 100 (-5.0) 5.0 100 (-5.0) 5.0 
 
@@ -24,10 +26,7 @@ main = do
 
   go 1000000
   draw h2 "lego"
-  saveAs tcanvas "random2d.pdf" ""
-  saveAs tcanvas "random2d.jpg" "" 
-
-
+  run tapp 1 
 
 histfill :: Normal Double -> Normal Double-> TH2F ->  IO () 
 histfill dist1 dist2 hist = do 

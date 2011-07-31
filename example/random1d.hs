@@ -21,13 +21,10 @@ main = do
                histfill dist h1
                go (n-1) 
 
---  forM_ [1..10000] (histfill dist h1)  
-   
   go 1000000
   draw h1 ""
-  saveAs tcanvas "test.pdf" ""
-
-
+  saveAs tcanvas "random1d.pdf" ""
+  saveAs tcanvas "random1d.jpg" "" 
 
 
 histfill :: Normal Double -> TH1F ->  IO () 

@@ -5,7 +5,6 @@ import HROOT.Class
 import HROOT.AddOn
 
 main = do 
-  tapp <- newTApplication "test" [0] ["test"] 
   tcanvas <- newTCanvas "test" "test" 640 480
   h1 <- newTH1F "test" "test" 100 1 10
   h2 <- newTH1F "test" "test" 100 1 10 
@@ -16,8 +15,10 @@ main = do
   add h1 h2 1.0
   
   draw h1 "" 
-  
-  run tapp 1 
---  saveAs tcanvas "test.pdf" "" 
---  putStrLn "test"
+
+  tfile <- newTFile "test.root" "NEW" "" 1   
+  write h1 "" 0 0 
+  close tfile ""
+
+
           

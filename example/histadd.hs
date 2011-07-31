@@ -16,11 +16,9 @@ main = do
   add h1 h2 1.0
   
   draw h1 "" 
+  
+--   run tapp 1 
+  saveAs tcanvas "histadd.pdf" "" 
+  return () 
 
-  tfile <- newTFile "test.root" "NEW" "" 1   
-  write h1 "" 0 0 
-  close tfile ""
---  run tapp 
---  saveAs tcanvas "test.pdf" "" 
---  putStrLn "test"
           
