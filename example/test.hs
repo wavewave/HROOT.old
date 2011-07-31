@@ -17,7 +17,7 @@ main = do
   
   draw h1 "" 
   
-  run tapp 
+  run tapp 1 
 --  saveAs tcanvas "test.pdf" "" 
 --  putStrLn "test"
           
