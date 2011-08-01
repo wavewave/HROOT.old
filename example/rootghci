@@ -1,3 +1,0 @@
-#!/bin/bash
-
-ghci -L/Users/wavewave/mac/root/lib -lGui -lGpad -lHist -lGraf -lGraf3d -lTree -lRint -lPostscript -lMatrix -lPhysics -lMathCore -lRIO -lNet -lThread -lCore -lCint -lpthread  -lm -ldl
