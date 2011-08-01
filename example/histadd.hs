@@ -27,6 +27,8 @@ main = do
   draw h1 ""   
 
   saveAs tcanvas "histadd.pdf" "" 
+  saveAs tcanvas "histadd.jpg" ""
+  saveAs tcanvas "histadd.png" ""
   return () 
 
           

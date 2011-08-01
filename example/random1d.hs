@@ -25,6 +25,7 @@ main = do
   draw h1 ""
   saveAs tcanvas "random1d.pdf" ""
   saveAs tcanvas "random1d.jpg" "" 
+  saveAs tcanvas "random1d.png" "" 
 
 
 histfill :: Normal Double -> TH1F ->  IO () 

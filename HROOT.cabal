@@ -1,41 +1,47 @@
 Name:		HROOT
-Version:	0.5.0.0
+Version:	0.5.0.3
 Synopsis:	Wrapper for ROOT
-Description: 	Haskell FFI Wrapper for frequently used ROOT routines.  
-License: 	GPL-3
+Description: 	Haskell FFI binding for ROOT  
+Homepage:       http://ianwookim.org/HROOT
+License: 	LGPL-2.1
 License-file:	LICENSE
 Author:		Ian-Woo Kim
 Maintainer: 	Ian-Woo Kim <ianwookim@gmail.com>
-Build-Depends:	base>4
+Category:       Graphics
+Tested-with:    GHC >= 7.0.2 && <= 7.0.3
 Build-Type: 	Custom
-
-hs-source-dirs: src
-ghc-options: 	-Wall -O2 -threaded -funbox-strict-fields -fno-warn-unused-do-bind
-ghc-prof-options: -caf-all -auto-all
-
-Exposed-Modules: 
-		 HROOT
-		 HROOT.Type
-		 HROOT.Function
-                 HROOT.Class
-                 HROOT.AddOn
-                 HROOT.AddOnFunction
-
-extra-libraries: stdc++
-
-Extra-source-files: csrc/HROOT.h
+cabal-version:  >=1.6
+Extra-source-files: Config.hs
+                    csrc/HROOT.h
                     csrc/addon.h
+                    example/histadd.hs
+                    example/random1d.hs
+                    example/random2d.hs
+                    example/random2dApp.hs
+                    example/saveAsROOT.hs
+Source-repository head
+  type:     darcs
+  location: http://ianwookim.org/public/repo/HROOT
 
 
-Extensions:	 ForeignFunctionInterface
-
-Include-dirs: 	csrc
-
-Install-includes: HROOT.h
-                  addon.h
-C-sources: 	csrc/HROOT.cpp
-                csrc/addon.cpp
+Library
+  hs-source-dirs: src
+  ghc-options:  -Wall -funbox-strict-fields -fno-warn-unused-do-bind -fno-warn-orphans
+  ghc-prof-options: -caf-all -auto-all
+  Build-Depends:      base>4 && < 5
+  Exposed-Modules:    HROOT
+                      HROOT.Type
+                      HROOT.Function
+                      HROOT.Class
+                      HROOT.AddOn
+                      HROOT.AddOnFunction
+  extra-libraries:    stdc++
+  Extensions:	      ForeignFunctionInterface
+  Include-dirs:       csrc
+  Install-includes:   HROOT.h
+                      addon.h
+  C-sources:          csrc/HROOT.cpp
+                      csrc/addon.cpp
    
 
 
--- ghci -L/usr/lib/gcc/x86_64-linux-gnu/4.4.5/ -lstdc++ -L/home/wavewave/nfs/root/lib/  -lCint -lCore -lNew -lGX11 -lRIO -lPostscript -lMatrix -lMathCore -lHist -lGraf -lGui -lGpad -lThread -lMinuit -lNet -lTree -lProof -lTreePlayer -lGraf3d -lX3d -lHtml

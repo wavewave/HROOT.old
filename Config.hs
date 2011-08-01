@@ -2,8 +2,6 @@
 
 module Config where
  
-import Control.Monad.Identity
-
 import Distribution.Simple
 import Distribution.Simple.Setup
 import Distribution.PackageDescription
@@ -12,7 +10,8 @@ import Distribution.Simple.LocalBuildInfo
 import System.Exit
 import System.Process
 
-import Text.Parsec
+-- import Text.Parsec
+-- import Control.Monad.Identity
 
 config :: LocalBuildInfo -> IO (Maybe HookedBuildInfo)
 config bInfo = do 
@@ -21,6 +20,7 @@ config bInfo = do
                   ExitSuccess -> do  
 --                    putStrLn $ show $ words out
 --                    putStrLn $ show $ libraryOptions (words out)
+--                    putStrLn $ show $ mkLibraryOptionSet . words $ out
 --                    putStrLn $ show $ mkLibraryOptionSet . words $ out
                     return . Just .  mkLibraryOptionSet . words $ out
                   _ -> do 
@@ -74,14 +74,29 @@ mkLibraryOptionSet strs = let opts = libraryOptions strs
 
 libraryOptions :: [String] -> [LibraryOption] -- LibraryOptionSet 
 libraryOptions = map f 
-  where f x = let r = parse libraryOptionClassifier "" x
+  where f x = let r = parseLibraryOptionClassifier x
               in  case r of 
                     Left msg -> error (show msg)
                     Right result -> result
 
 
+parseLibraryOptionClassifier :: String -> Either String LibraryOption 
+parseLibraryOptionClassifier [] = Left "empty option"
+parseLibraryOptionClassifier str@(x:xs) = 
+  case x of
+    '-' -> if null xs 
+             then Left "parse error"
+             else let (y:ys) = xs
+                  in  case y of
+                        'L' -> Right (Dir ys)
+                        'l' -> Right (Lib ys)
+                        _ -> Right (Opt str)
+    _ -> Right (Opt str) 
+
+{-
 libraryOptionClassifier :: ParsecT String () Identity LibraryOption
 libraryOptionClassifier = 
   try (string "-L" >> many1 anyChar >>= return . Dir) 
   <|> try (string "-l" >> many1 anyChar >>= return . Lib)
   <|> (many1 anyChar >>= return . Opt)
+-}

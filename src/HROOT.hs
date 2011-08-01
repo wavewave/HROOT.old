@@ -14,7 +14,7 @@
 --   in global directory. For local installation, 
 --   You need to set environmental variable @ROOTSYS@ to the home directory
 --   of ROOT and include @$ROOTSYS\/bin@ and @$ROOTSYS\/lib@ in your @PATH@ and 
---   @LD_LIBRARY_PATH@ or @DYLD_LIBRARY_PATH@ for @ROOT@ to work. 
+--   @LD_LIBRARY_PATH@ or @DYLD_LIBRARY_PATH@ for @ROOT@ to work, respectively. 
 --
 --   HROOT package can be installed without ROOT, but it won't work. 
 --   Examples are in example directory in the package.

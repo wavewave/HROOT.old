@@ -26,6 +26,7 @@ main = do
   draw h2 "lego"
   saveAs tcanvas "random2d.pdf" ""
   saveAs tcanvas "random2d.jpg" "" 
+  saveAs tcanvas "random2d.png" ""
 
 
 
