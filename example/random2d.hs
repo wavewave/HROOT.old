@@ -27,6 +27,8 @@ main = do
   saveAs tcanvas "random2d.pdf" ""
   saveAs tcanvas "random2d.jpg" "" 
   saveAs tcanvas "random2d.png" ""
+  delete h2
+  delete tcanvas
 
 
 

@@ -1,5 +1,5 @@
 Name:		HROOT
-Version:	0.5.0.3
+Version:	0.5.0.999
 Synopsis:	Wrapper for ROOT
 Description: 	Haskell FFI binding for ROOT  
 Homepage:       http://ianwookim.org/HROOT

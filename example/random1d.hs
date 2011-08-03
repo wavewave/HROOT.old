@@ -26,6 +26,9 @@ main = do
   saveAs tcanvas "random1d.pdf" ""
   saveAs tcanvas "random1d.jpg" "" 
   saveAs tcanvas "random1d.png" "" 
+  delete h1
+  delete tcanvas
+
 
 
 histfill :: Normal Double -> TH1F ->  IO () 

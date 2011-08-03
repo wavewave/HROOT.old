@@ -27,6 +27,10 @@ main = do
   go 1000000
   draw h2 "lego"
   run tapp 1 
+  delete h2
+  delete tapp
+
+
 
 histfill :: Normal Double -> Normal Double-> TH2F ->  IO () 
 histfill dist1 dist2 hist = do 

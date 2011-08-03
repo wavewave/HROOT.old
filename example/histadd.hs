@@ -29,6 +29,11 @@ main = do
   saveAs tcanvas "histadd.pdf" "" 
   saveAs tcanvas "histadd.jpg" ""
   saveAs tcanvas "histadd.png" ""
+
+  delete h1
+  delete h2
+  delete tcanvas
+
   return () 
 
           

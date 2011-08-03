@@ -20,5 +20,10 @@ main = do
   write h1 "" 0 0 
   close tfile ""
 
+  delete tfile
+  delete h1
+  delete h2
+
+  delete tcanvas
 
           
