@@ -1,5 +1,5 @@
 Name:		HROOT
-Version:	0.5.0.999
+Version:	0.5.1.0
 Synopsis:	Wrapper for ROOT
 Description: 	Haskell FFI binding for ROOT  
 Homepage:       http://ianwookim.org/HROOT
@@ -11,7 +11,8 @@ Category:       Graphics
 Tested-with:    GHC >= 7.0.2 && <= 7.0.3
 Build-Type: 	Custom
 cabal-version:  >=1.6
-Extra-source-files: Config.hs
+Extra-source-files: CHANGES
+                    Config.hs
                     csrc/HROOT.h
                     csrc/addon.h
                     example/histadd.hs
