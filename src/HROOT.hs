@@ -22,16 +22,16 @@
 
 
 module HROOT (
-  module HROOT.Type,
-  module HROOT.Class,
-  module HROOT.Function, 
+  module HROOT.Class.Interface,
+  module HROOT.Class.Implementation,
+  module HROOT.Class.FFI, 
   module HROOT.AddOn
 ) where
 
 
 
-import HROOT.Type
-import HROOT.Class
-import HROOT.Function
+import HROOT.Class.Interface
+import HROOT.Class.Implementation
+import HROOT.Class.FFI
 import HROOT.AddOn 
 

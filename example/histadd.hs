@@ -1,20 +1,18 @@
 module Main where
 
-import Data.Random
-import Data.Random.Distribution.Normal
-
-import HROOT.Type
-import HROOT.Class
-import HROOT.AddOn
+import HROOT
 
 main = do 
   tcanvas <- newTCanvas "test" "test" 640 480
   
   h1 <- newTH1F "test" "test" 100 (-10.0) 10.0  
   h2 <- newTH1F "test" "test" 100 (-10.0) 10.0 
-  
-  let dist1 = Normal (0 :: Double) (2 :: Double) 
-      dist2 = Normal (3 :: Double) (1 :: Double)
+
+  tRandom <- newTRandom 65535
+
+  let dist1 = gaus tRandom 0 2 
+      dist2 = gaus tRandom 3 1 
+
   let go n | n < 0 = return () 
            | otherwise = do 
                histfill dist1 h1 
@@ -37,9 +35,9 @@ main = do
   return () 
 
           
-histfill :: Normal Double -> TH1F -> IO () 
+histfill :: IO Double -> TH1F -> IO () 
 histfill dist hist = do 
-  x <- sample dist 
+  x <- dist 
   fill1 hist x 
   return () 
 

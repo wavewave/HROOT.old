@@ -2,23 +2,20 @@ module Main where
 
 import Control.Monad
 
-import Data.Random 
-import Data.Random.Distribution.Normal
-
-import HROOT.Type
-import HROOT.Class 
-import HROOT.AddOn
+import HROOT
 
 main :: IO () 
 main = do 
   tcanvas <- newTCanvas "Test" "Test" 640 480
   h1 <- newTH1F "test" "test" 100 (-5.0) 5.0 
 
-  let dist = (Normal (0 :: Double) (2 :: Double)) 
+  tRandom <- newTRandom 65535
+
+  let generator = gaus tRandom 0 2
 
   let go n | n < 0 = return () 
            | otherwise = do 
-               histfill dist h1
+               histfill generator h1
                go (n-1) 
 
   go 1000000
@@ -31,8 +28,8 @@ main = do
 
 
 
-histfill :: Normal Double -> TH1F ->  IO () 
-histfill dist hist = do 
-  x <- sample dist 
+histfill :: IO Double -> TH1F ->  IO () 
+histfill gen hist = do 
+  x <- gen
   fill1 hist x
   return () 

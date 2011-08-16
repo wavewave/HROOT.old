@@ -1,8 +1,6 @@
 module Main where
 
-import HROOT.Type
-import HROOT.Class
-import HROOT.AddOn
+import HROOT
 
 main = do 
   tcanvas <- newTCanvas "test" "test" 640 480
