@@ -8,7 +8,7 @@ import Foreign.ForeignPtr
 
 
 import HROOT.Class.Interface
-import HROOT.Class.Implementation
+import HROOT.Class.Implementation ()
 
 data BottomType
 
