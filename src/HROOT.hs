@@ -18,7 +18,6 @@
 --
 --   HROOT package can be installed without ROOT, but it won't work. 
 --   Examples are in example directory in the package.
---   Some examples are using @random-fu@ package. 
 
 
 module HROOT (
