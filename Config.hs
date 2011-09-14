@@ -10,18 +10,11 @@ import Distribution.Simple.LocalBuildInfo
 import System.Exit
 import System.Process
 
--- import Text.Parsec
--- import Control.Monad.Identity
-
 config :: LocalBuildInfo -> IO (Maybe HookedBuildInfo)
 config bInfo = do 
   (excode, out, err) <- readProcessWithExitCode "root-config" ["--glibs"] ""
   liboptset' <- case excode of 
                   ExitSuccess -> do  
---                    putStrLn $ show $ words out
---                    putStrLn $ show $ libraryOptions (words out)
---                    putStrLn $ show $ mkLibraryOptionSet . words $ out
---                    putStrLn $ show $ mkLibraryOptionSet . words $ out
                     return . Just .  mkLibraryOptionSet . words $ out
                   _ -> do 
                     putStrLn $ "root-config failure but I am installing HROOT without ROOT. It will not work. This is only for documentation." 
@@ -29,7 +22,6 @@ config bInfo = do
   (excode2,out2,err2) <- readProcessWithExitCode "root-config" ["--incdir"] ""
   incdir' <- case excode2 of 
                ExitSuccess -> do  
---                 putStrLn $ out2
                  return . Just . head . words $ out2
                _ -> do 
                  putStrLn $ "root-config failure but I am installing HROOT without ROOT. It will not work. This is only for documentation." 
@@ -48,8 +40,6 @@ config bInfo = do
                                            , includeDirs = incdir : includeDirs buildinfo
                                            }
                   in Just (Just hbi, []) 
---  putStrLn $ "show here"
---  putStrLn $ show r
   return r 
 
 
@@ -93,10 +83,3 @@ parseLibraryOptionClassifier str@(x:xs) =
                         _ -> Right (Opt str)
     _ -> Right (Opt str) 
 
-{-
-libraryOptionClassifier :: ParsecT String () Identity LibraryOption
-libraryOptionClassifier = 
-  try (string "-L" >> many1 anyChar >>= return . Dir) 
-  <|> try (string "-l" >> many1 anyChar >>= return . Lib)
-  <|> (many1 anyChar >>= return . Opt)
--}
