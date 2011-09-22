@@ -2,6 +2,7 @@
 
 module HROOT.AddOn where
 
+{-
 --import Foreign.C            
 import Foreign.ForeignPtr
 --import Foreign.Marshal.Array
@@ -38,5 +39,5 @@ castTObject eobj = do
                         in  return . EGADTTObject . GADTTObjectTH1F $ obj'
     _         -> return . EGADTTObject $ GADTTObjectBottom
 
-
+-}
 
