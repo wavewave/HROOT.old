@@ -11,7 +11,7 @@ main = do
   tRandom <- newTRandom 65535
   let generator1 = gaus tRandom 0 2 
       generator2 = gaus tRandom 1 0.5
-  let go n | n < 0 = return () 
+  let go n | n <= 0 = return () 
            | otherwise = do 
                histfill generator1 generator1 h2
                histfill generator2 generator2 h2
