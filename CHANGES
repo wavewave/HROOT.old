@@ -3,3 +3,6 @@
 
 0.5.1: 3 Aug 2011
    * support for delete 
+
+0.6.7: 18 Oct 2011
+   * implement almost all TH1 class methods
