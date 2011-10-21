@@ -23,3 +23,6 @@
 
 0.6.8: 20 Oct 2011
    * implement almost all class methods of TH2, TH3, TFormula, TF1 and TGraph
+
+0.6.9: 20 Oct 2011 
+   * implement almost all class methods of TLine, TAttLine, TAttMarker, TAttText and TAttPad
