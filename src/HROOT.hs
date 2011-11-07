@@ -21,16 +21,16 @@
 
 
 module HROOT (
-  module HROOT.Class.Interface,
-  module HROOT.Class.Implementation,
-  module HROOT.Class.FFI, 
-  module HROOT.AddOn
+--  module HROOT.Class.Interface,
+--  module HROOT.Class.Implementation,
+--  module HROOT.Class.FFI, 
+--  module HROOT.AddOn
 ) where
 
 
 
-import HROOT.Class.Interface
-import HROOT.Class.Implementation
-import HROOT.Class.FFI
-import HROOT.AddOn 
+-- import HROOT.Class.Interface
+-- import HROOT.Class.Implementation
+-- import HROOT.Class.FFI
+-- import HROOT.AddOn 
 
