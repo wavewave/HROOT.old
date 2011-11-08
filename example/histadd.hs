@@ -1,18 +1,21 @@
 module Main where
 
+import HROOT
+{-
 import HROOT.Class.Deletable
 import HROOT.Class.TH1
 import HROOT.Class.TH1F
 import HROOT.Class.TCanvas
-import HROOT.Class.TRandom
-import HROOT.Class.TObject
+import HROOT.Class.TRandom 
+import HROOT.Class.TObject 
+-}
 
 main = do 
   tcanvas <- newTCanvas "test" "test" 640 480
   
   h1 <- newTH1F "test" "test" 100 (-10.0) 10.0  
   h2 <- newTH1F "test" "test" 100 (-10.0) 10.0 
-
+  
   tRandom <- newTRandom 65535
 
   let dist1 = gaus tRandom 0 2 
@@ -26,7 +29,7 @@ main = do
   go 1000000 
  
   add h1 h2 1.0 
- 
+   
   draw h1 ""   
 
   saveAs tcanvas "histadd.pdf" "" 
@@ -39,10 +42,10 @@ main = do
 
   return () 
 
-          
+         
 histfill :: IO Double -> TH1F -> IO () 
 histfill dist hist = do 
   x <- dist 
   fill1 hist x 
-  return () 
+  return ()  
 
