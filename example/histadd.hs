@@ -1,6 +1,11 @@
 module Main where
 
-import HROOT
+import HROOT.Class.Deletable
+import HROOT.Class.TH1
+import HROOT.Class.TH1F
+import HROOT.Class.TCanvas
+import HROOT.Class.TRandom
+import HROOT.Class.TObject
 
 main = do 
   tcanvas <- newTCanvas "test" "test" 640 480
