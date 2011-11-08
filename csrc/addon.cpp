@@ -1,6 +1,7 @@
-#include "HROOT.h"
+// #include "HROOT.h"
 #include "addon.h"
 
+/*
 #include "TF1.h"
 #include "TCanvas.h"
 #include "TH1F.h"
@@ -18,7 +19,12 @@ template<class ToType, class FromType>
 ToType* to_nonconst(FromType* x) {
   return reinterpret_cast<ToType*>(x);
 }
+*/
 
 // New Functions : I will automate them later .
 
+void dummyfunc ( void ) 
+{
+  return ; 
+}
 
